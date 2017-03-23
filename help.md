@@ -25,12 +25,15 @@ Container has to have access to host network (--net=host option while docker run
 Reason for this is need to share one UDP port with other services and raw socket issue (more info [here](https://kb.isc.org/article/AA-00378/0/Why-does-DHCP-use-raw-sockets.html))
 
 
-    -v /etc/dhcp:/etc/dhcp
 Location of DHCP configuration file (/etc/dhcp/dhcpd.conf). This file
-contains network information for clients and needs to exist before container run.
-    
+contains network information for clients and needs to exist before container run:
+
+    -v /etc/dhcp:/etc/dhcp
+
+Client leases database:
+
     -v /var/lib/dhcpd:/var/lib/dhcpd
-Client leases database for clients.
+
 
 # SEE ALSO
 
