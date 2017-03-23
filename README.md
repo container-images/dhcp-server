@@ -2,11 +2,13 @@
 
 ## Description
 
+DHCP (Dynamic Host Configuration Protocol) server provides network configuration for dhcp-clients.
+
 ## Running in docker
 
 Clone this repository somewhere and build the container:
 
-    # docker build --rm -t <username>/dhcpd .
+    # docker build -t <username>/dhcpd .
 
 
 Configure dhcp-server in ``/etc/dhcp/dhcpd.conf`` ([dhcp-server configuration](https://docs.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s1-dhcp-configuring-server.html)) 
