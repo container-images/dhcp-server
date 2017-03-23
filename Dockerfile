@@ -13,7 +13,7 @@ LABEL summary="DHCP (Dynamic Host Configuration Protocol) server container" \
       io.openshift.tags="dhcp"
 
 ADD files/dhcp-server-module.repo /etc/yum.repos.d/dhcp-server-module.repo
-ADD dhcpd.sh /dhcpd
+ADD files/dhcpd.sh /dhcpd
 
 RUN dnf -y install dhcp-server && dnf clean all && \
     chmod 755 /dhcpd
