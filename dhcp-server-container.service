@@ -1,0 +1,12 @@
+[Unit]
+Description="ISC DHCP server container"
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker run --user root --net=host -v /etc/dhcp/:/etc/dhcp -v /var/lib/dhcpd:/var/lib/dhcpd --name dhcp-server-container docker.io/dhodovsk/dhcp-server
+ExecStop=/usr/bin/docker stop -t 2 dhcp-server-container
+ExecStopPost=/usr/bin/docker rm -f dhcp-server-container
+
+[Install]
+WantedBy=multi-user.target
