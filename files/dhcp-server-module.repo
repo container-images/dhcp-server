@@ -1,5 +1,0 @@
-[dhcp-server-module]
-name=dhcp-server module repository
-baseurl=https://dhodovsk.fedorapeople.org/dhcp-server-rpms/
-enabled=1
-gpgcheck=0
