@@ -1,0 +1,61 @@
+.TH "DHCP-SERVER" "1" " Container Image Pages" "Dominika Hodovska" "March 23, 2017"  ""
+
+
+.SH NAME
+.PP
+dhcp\-server \- ISC DHCP server
+
+
+.SH DESCRIPTION
+.PP
+DHCP (Dynamic Host Configuration Protocol) is a protocol which allows
+individual devices on an IP network to get their own network
+configuration information (IP address, subnetmask, broadcast address,
+etc.) from a DHCP server. The overall purpose of DHCP is to make it
+easier to administer a large network.
+
+
+.SH USAGE
+.PP
+To get the dhcp\-server container image on your local system, run the following:
+
+.PP
+.RS
+
+.nf
+docker pull docker.io/dhodovsk/dhcp\-server
+
+.fi
+.RE
+
+
+.SH SECURITY IMPLICATIONS
+.PP
+Container has to have access to host network (\-\-net=host option while docker run).
+Reason for this is need to share one UDP port with other services and raw socket issue (more info 
+\[la]https://kb.isc.org/article/AA-00378/0/Why-does-DHCP-use-raw-sockets.html\[ra])
+
+.PP
+Location of DHCP configuration file (/etc/dhcp/dhcpd.conf). This file
+contains network information for clients and needs to exist before container run:
+
+.PP
+.RS
+
+.nf
+\-v /etc/dhcp:/etc/dhcp
+
+.fi
+.RE
+
+.PP
+Client leases database:
+
+.PP
+.RS
+
+.nf
+\-v /var/lib/dhcpd:/var/lib/dhcpd
+
+.fi
+.RE

@@ -1,0 +1,5 @@
+[dhcp-server-module]
+name=dhcp-server module repository
+baseurl=https://kojipkgs.fedoraproject.org/repos/module-f4faa83efb729898-build/latest/x86_64/
+enabled=1
+gpgcheck=0
